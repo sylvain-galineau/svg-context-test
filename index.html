@@ -12,6 +12,7 @@
 
             section {
                 display: block;
+                overflow: hidden;
                 font-size: 20px;
                 background-color: #ADA5A5;
                 padding: .5em;
@@ -29,10 +30,26 @@
             }
 
             section > .test {
+                float:left;
                 height: 400px;
                 margin: .25em;
                 padding: .1em;
             }
+
+            .bgtest {
+                width: 300px;
+                height: 200px;
+                background-color: white;
+            }
+
+            #bgtest-box {
+                background-image: url('./svg/box.svg');
+            }
+
+            #bgtest-circle {
+                background-image: url('./svg/circle.svg');
+            }
+
         </style>
     </head>
     <body>
@@ -66,6 +83,22 @@
             <div class="test">
                 <img src="./svg/box.svg">
                 <img src="./svg/circle.svg">
+            </div>
+        </section>
+
+        <section> 
+            <div class="explain">
+                <h3>SVG as Background Image</h3>
+                <ul>
+                    <li>The same SVG documents used as background images</li>
+                    <li>JS and CSS animations should no longer run</li>
+                    <li>The 'BOX' and 'CIRCLE' test should no longer be visible.</li>
+                </ul>
+            </div>
+
+            <div class="test">
+                <div id="bgtest-box" class="bgtest"></div>
+                <div id="bgtest-circle" class="bgtest"></div>
             </div>
         </section>
 

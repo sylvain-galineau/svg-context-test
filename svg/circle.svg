@@ -11,7 +11,7 @@
      </style>
 
     <circle id="circle" cx="150" cy="100" r="80" fill="green" />
-    <text id="white-text" x="150" y="115" font-size="60" text-anchor="middle">BOX</text>
+    <text id="white-text" x="150" y="108" font-size="30" text-anchor="middle">CIRCLE</text>
 
     <script type="text/javascript">
         <![CDATA[
