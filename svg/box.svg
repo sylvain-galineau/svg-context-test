@@ -6,6 +6,12 @@
 
      <style type="text/css">
         <![CDATA[
+            @-webkit-keyframes color {
+                25%     { fill: yellow; }
+                50%     { fill: green;  }
+                75%     { fill: red;    }
+                100%    { fill: blue;   }
+            }
             @keyframes color {
                 25%     { fill: yellow; }
                 50%     { fill: green;  }
@@ -13,7 +19,10 @@
                 100%    { fill: blue;   }
             }
 
-            #box, text { animation: color 3s infinite; }
+            #box, text {
+                -webkit-animation: color 3s infinite; 
+                animation: color 3s infinite; 
+            }
             text { fill: blue; }
          ]]>
      </style>

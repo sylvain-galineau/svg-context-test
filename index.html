@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            iframe, img {
+                display: block;
+                width: 300px;
+                height: 200px;
+                background-color: white;
+            }
+
+            section {
+                display: block;
+                font-size: 20px;
+                background-color: #ADA5A5;
+                padding: .5em;
+                margin: .5em;
+                border: 1px dotted black;
+            }
+
+            section > .explain {
+                float: left;
+                width: 500px;
+                height: 400px;
+                margin: .25em;
+                padding: .1em;
+                background-color: #F0F9FA;
+            }
+
+            section > .test {
+                height: 400px;
+                margin: .25em;
+                padding: .1em;
+            }
+        </style>
+    </head>
+    <body>
+        <section> 
+            <div class="explain">
+                <h3>SVG as Page</h3>
+                <ul>
+                    <li>Both of these SVG documents are loaded using iframes.</li>
+                    <li>box.svg is animated using CSS animations.</li>
+                    <li>circle.svg is animated using JavaScript.</li>
+                    <li>The text is styled white by an external stylesheet.</li>
+                </ul>
+            </div>
+
+            <div class="test">
+                <iframe src="./svg/box.svg"></iframe>
+                <iframe src="./svg/circle.svg"></iframe>
+            </div>
+        </section>
+
+        <section> 
+            <div class="explain">
+                <h3>SVG as Image</h3>
+                <ul>
+                    <li>The same SVG documents as above are now loaded by &lt;img&gt; elements.</li>
+                    <li>JS and CSS animations should no longer run</li>
+                    <li>The 'BOX' and 'CIRCLE' test should no longer be visible.</li>
+                </ul>
+            </div>
+
+            <div class="test">
+                <img src="./svg/box.svg">
+                <img src="./svg/circle.svg">
+            </div>
+        </section>
+
+
+    </body>
+</html>
