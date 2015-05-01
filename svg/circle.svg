@@ -4,10 +4,17 @@
      width="300"
      height="200">
 
+     <style type="text/css">
+        <![CDATA[
+            text { fill: green; }
+         ]]>
+     </style>
+
     <circle id="circle" cx="150" cy="100" r="80" fill="green" />
-    <text id="white-text" x="150" y="115" font-size="60" text-anchor="middle" fill="green">BOX</text>
+    <text id="white-text" x="150" y="115" font-size="60" text-anchor="middle">BOX</text>
 
     <script type="text/javascript">
+        <![CDATA[
         var c = document.getElementById('circle');
         zoom();
 
@@ -27,6 +34,7 @@
 
             requestAnimationFrame(zoom);
         }
+        ]]>
     </script>
 
 </svg>

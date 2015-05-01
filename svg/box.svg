@@ -14,8 +14,9 @@
             }
 
             #box, text { animation: color 3s infinite; }
+            text { fill: blue; }
          ]]>
      </style>
   <rect id="box" x="50" y="50" width="200" height="100" fill="blue" />
-  <text id="white-text" x="150" y="115" font-size="60" text-anchor="middle" fill="blue">BOX</text>
+  <text id="white-text" x="150" y="115" font-size="60" text-anchor="middle">BOX</text>
 </svg>
