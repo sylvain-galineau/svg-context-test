@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            iframe, img {
+                display: block;
+                width: 300px;
+                height: 200px;
+                background-color: white;
+            }
+
+            svg {
+                display: block;
+            }
+
+            section {
+                display: block;
+                overflow: hidden;
+                font-size: 20px;
+                background-color: #ADA5A5;
+                padding: .5em;
+                margin: .5em;
+                border: 1px dotted black;
+            }
+
+            section > .explain {
+                float: left;
+                width: 500px;
+                height: 400px;
+                margin: .25em;
+                padding: .1em;
+                background-color: #F0F9FA;
+            }
+
+            section > .test {
+                float:left;
+                height: 400px;
+                margin: .25em;
+                padding: .1em;
+            }
+
+            .bgtest {
+                width: 300px;
+                height: 200px;
+                background-color: white;
+            }
+
+            .bgtest-box {
+                background-image: url('./svg/box.svg');
+            }
+
+            .bgtest-circle {
+                background-image: url('./svg/circle.svg');
+            }
+
+        </style>
+    </head>
+    <body>
+        <section> 
+            <div class="explain">
+                <h3>SVG as Page</h3>
+                <ul>
+                    <li>Both of these SVG documents are loaded using iframes.</li>
+                    <li>box.svg is animated using CSS animations.</li>
+                    <li>circle.svg is animated using JavaScript.</li>
+                    <li>The text is styled white by an external stylesheet.</li>
+                </ul>
+            </div>
+
+            <div class="test">
+                <iframe src="./svg/box.svg"></iframe>
+                <iframe src="./svg/circle.svg"></iframe>
+            </div>
+        </section>
+
+        <section> 
+            <div class="explain">
+                <h3>SVG as Image</h3>
+                <ul>
+                    <li>The same SVG documents as above are now loaded by &lt;img&gt; elements.</li>
+                    <li>JS and CSS animations should no longer run</li>
+                    <li>The 'BOX' and 'CIRCLE' text should no longer be visible.</li>
+                </ul>
+            </div>
+
+            <div class="test">
+                <img src="./svg/box.svg">
+                <img src="./svg/circle.svg">
+            </div>
+        </section>
+
+        <section> 
+            <div class="explain">
+                <h3>SVG as Background Image</h3>
+                <ul>
+                    <li>The same SVG documents used as background images</li>
+                    <li>JS and CSS animations should no longer run</li>
+                    <li>The 'BOX' and 'CIRCLE' text should no longer be visible.</li>
+                </ul>
+            </div>
+
+            <div class="test">
+                <div class="bgtest bgtest-box"></div>
+                <div class="bgtest bgtest-circle"></div>
+            </div>
+        </section>
+
+        <section> 
+            <div class="explain">
+                <h3>SVG as Inline Image</h3>
+                <ul>
+                    <li>The same SVG documents as inline markup</li>
+                    <li>JS and CSS animations should run</li>
+                    <li>The 'BOX' text should be visible.</li>
+                    <li>The 'BOX' text is green because the CSS of the second SVG document overrides the blue text color set by the first</li>
+                </ul>
+            </div>
+
+            <div class="test">
+                <svg class="bgtest-box">
+                     <style type="text/css">
+                            @-webkit-keyframes color {
+                                25%     { fill: yellow; }
+                                50%     { fill: green;  }
+                                75%     { fill: red;    }
+                                100%    { fill: blue;   }
+                            }
+                            @keyframes color {
+                                25%     { fill: yellow; }
+                                50%     { fill: green;  }
+                                75%     { fill: red;    }
+                                100%    { fill: blue;   }
+                            }
+
+                            #box {
+                                -webkit-animation: color 3s infinite; 
+                                animation: color 3s infinite; 
+                            }
+                            text { fill: blue; }
+                     </style>
+                  <rect id="box" x="50" y="50" width="200" height="100" fill="blue" />
+                  <text id="white-text" x="150" y="115" font-size="60" text-anchor="middle">BOX</text>
+                </svg>
+                <svg class="bgtest-circle">
+                     <style type="text/css">
+                            text { fill: green; }
+                     </style>
+
+                    <circle id="circle" cx="150" cy="100" r="80" fill="green" />
+                    <text id="white-text" x="150" y="108" font-size="30" text-anchor="middle">CIRCLE</text>
+
+                    <script type="text/javascript">
+                        var c = document.getElementById('circle');
+                        zoom();
+
+                        function zoom() {
+                            if (!c.direction) {
+                                c.direction = "shrink";
+                                c.radius = parseInt(c.getAttribute('r'));
+                            } 
+
+                            c.radius += (c.direction === "grow")?0.5:-0.5;
+                            c.setAttribute('r', c.radius.toString());
+
+                            if (c.radius == 0)
+                                c.direction = "grow";
+                            if (c.radius == 125)
+                                c.direction = "shrink";
+
+                            requestAnimationFrame(zoom);
+                        }
+                    </script>
+                </svg>
+            </div>
+        </section>
+        
+
+    </body>
+</html>

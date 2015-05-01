@@ -1,0 +1,31 @@
+<?xml-stylesheet type="text/css" href="../css/white-text.css" ?>  
+<svg version="1.1" 
+     xmlns="http://www.w3.org/2000/svg"
+     width="300"
+     height="200">
+
+     <style type="text/css">
+        <![CDATA[
+            @-webkit-keyframes color {
+                25%     { fill: yellow; }
+                50%     { fill: green;  }
+                75%     { fill: red;    }
+                100%    { fill: blue;   }
+            }
+            @keyframes color {
+                25%     { fill: yellow; }
+                50%     { fill: green;  }
+                75%     { fill: red;    }
+                100%    { fill: blue;   }
+            }
+
+            #box, text {
+                -webkit-animation: color 3s infinite; 
+                animation: color 3s infinite; 
+            }
+            text { fill: blue; }
+         ]]>
+     </style>
+  <rect id="box" x="50" y="50" width="200" height="100" fill="blue" />
+  <text id="white-text" x="150" y="115" font-size="60" text-anchor="middle">BOX</text>
+</svg>
