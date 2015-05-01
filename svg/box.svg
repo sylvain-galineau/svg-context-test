@@ -1,0 +1,20 @@
+<svg version="1.1" 
+     xmlns="http://www.w3.org/2000/svg"
+     width="300"
+     height="200">
+
+     <style type="text/css">
+        <![CDATA[
+            @keyframes color {
+                25%     { fill: yellow; }
+                50%     { fill: green;  }
+                75%     { fill: red;    }
+                100%    { fill: blue;   }
+            }
+
+            #box { animation: color 3s infinite; }
+         ]]>
+     </style>
+  <rect id="box" x="50" y="50" width="200" height="100" fill="blue" />
+
+</svg>
